@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'profile-card',
   templateUrl: './profile-card.component.html',
-  styleUrls: ['./profile-card.component.scss']
+  styleUrls: ['./profile-card.component.scss'],
 })
 export class ProfileCardComponent implements OnInit {
+  activeTimeFrame: string = 'daily';
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  changeTimeFrame(time: string) {
+    this.activeTimeFrame = time;
   }
-
 }

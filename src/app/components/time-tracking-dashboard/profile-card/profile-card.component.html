@@ -1,1 +1,34 @@
-<p>profile-card works!</p>
+<div class="container">
+  <div class="d-flex header vertical-align-center">
+    <img
+      src="./../../../../assets/time-tracking-dashboard/images/img-profile-jeremy.png"
+      alt="profile"
+    />
+    <div>
+      <span class="report-for">Report for</span>
+      <h3 class="name">Jeremy Robson</h3>
+    </div>
+  </div>
+  <div>
+    <ul class="d-flex remove-list-bullets navigation-menu">
+      <li
+        (click)="changeTimeFrame('daily')"
+        [ngClass]="{ 'nav-active': activeTimeFrame === 'daily' }"
+      >
+        Daily
+      </li>
+      <li
+        (click)="changeTimeFrame('weekly')"
+        [ngClass]="{ 'nav-active': activeTimeFrame === 'weekly' }"
+      >
+        Weekly
+      </li>
+      <li
+        (click)="changeTimeFrame('monthly')"
+        [ngClass]="{ 'nav-active': activeTimeFrame === 'monthly' }"
+      >
+        Monthly
+      </li>
+    </ul>
+  </div>
+</div>
