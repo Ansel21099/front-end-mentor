@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetJsonDataService } from 'src/app/service/get-json-data.service';
+import { GetJsonDataService } from 'src/app/time-tracking-dashboard/service/get-json-data.service';
 
 @Component({
   selector: 'profile-card',
