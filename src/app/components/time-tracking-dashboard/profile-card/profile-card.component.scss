@@ -9,7 +9,7 @@ $white: #ffffff;
 
 .container {
   background-color: $dark-blue;
-  margin: 60px 20px;
+  margin: 0 20px;
   border-radius: 16px;
 }
 
@@ -43,6 +43,10 @@ $white: #ffffff;
   cursor: pointer;
   font-size: 16px;
   outline: none;
+
+  li {
+    text-transform: capitalize;
+  }
 
   .nav-active {
     color: $white;

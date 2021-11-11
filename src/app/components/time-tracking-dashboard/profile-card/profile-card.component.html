@@ -12,22 +12,11 @@
   <div>
     <ul class="d-flex remove-list-bullets navigation-menu">
       <li
-        (click)="changeTimeFrame('daily')"
-        [ngClass]="{ 'nav-active': activeTimeFrame === 'daily' }"
+        *ngFor="let item of timeFrames"
+        (click)="changeTimeFrame(item)"
+        [ngClass]="{ 'nav-active': activeTimeFrame === item }"
       >
-        Daily
-      </li>
-      <li
-        (click)="changeTimeFrame('weekly')"
-        [ngClass]="{ 'nav-active': activeTimeFrame === 'weekly' }"
-      >
-        Weekly
-      </li>
-      <li
-        (click)="changeTimeFrame('monthly')"
-        [ngClass]="{ 'nav-active': activeTimeFrame === 'monthly' }"
-      >
-        Monthly
+        {{ item }}
       </li>
     </ul>
   </div>

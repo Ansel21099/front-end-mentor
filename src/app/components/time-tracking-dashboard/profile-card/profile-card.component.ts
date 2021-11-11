@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-card.component.scss'],
 })
 export class ProfileCardComponent implements OnInit {
-  activeTimeFrame: string = 'daily';
+
+  timeFrames: string[] = ['daily','weekly','monthly'];
+  activeTimeFrame: string = this.timeFrames[0];
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,0 +1,80 @@
+@use "/src/assets/sass/common.scss";
+
+$light-red: hsl(15, 100%, 70%);
+$soft-blue: hsl(195, 74%, 62%);
+$light-red: hsl(348, 100%, 68%);
+$lime-green: hsl(145, 58%, 55%);
+$violet: hsl(264, 64%, 52%);
+$soft-orange: hsl(43, 84%, 65%);
+$dark-blue: hsl(235, 46%, 20%);
+$pale-blue: hsl(236, 100%, 87%);
+
+.container {
+  border-radius: 16px;
+  background-color: $soft-blue;
+}
+
+.header {
+  padding-right: 20px;
+  height: 50px;
+
+  img {
+    background-repeat: no-repeat;
+    background-position: 92%;
+  }
+}
+
+.body {
+  background-color: $dark-blue;
+  border-radius: 16px;
+  padding: 24px;
+
+  .title {
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  img {
+    height: 5px;
+  }
+
+  .body-time {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    .time {
+      font-size: 32px;
+      color: white;
+      font-weight: 300;
+    }
+
+    .last-week-time {
+      color: $pale-blue;
+      font-weight: 300;
+      align-self: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 250px;
+  }
+
+  .body {
+
+    .body-time {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      padding: 16px 0;
+      display: grid;
+
+      .time {
+        font-size: 42px;
+        padding-bottom: 8px;
+      }
+    }
+  }
+}
