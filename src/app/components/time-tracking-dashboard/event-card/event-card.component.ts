@@ -1,52 +1,70 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { GetJsonDataService } from 'src/app/service/get-json-data.service';
 
 @Component({
   selector: 'event-card',
   templateUrl: './event-card.component.html',
-  styleUrls: ['./event-card.component.scss']
+  styleUrls: ['./event-card.component.scss'],
 })
 export class EventCardComponent implements OnInit {
-
   @Input() cardData: any;
 
-  imagesAndColor: any = [
-    {
-      imageUrl: './../../../../assets/time-tracking-dashboard/images/icon-work.svg',
-      color: 'light-red',
-      key: 'Work'
-    },
-    {
-      imageUrl: './../../../../assets/time-tracking-dashboard/images/icon-play.svg',
-      color: 'soft-blue',
-      key: 'Play'
-    },
-    {
-      imageUrl: './../../../../assets/time-tracking-dashboard/images/icon-study.svg',
-      color: 'light-red',
-      key: 'Study'
-    },
-    {
-      imageUrl: './../../../../assets/time-tracking-dashboard/images/icon-exercise.svg',
-      color: 'lime-green',
-      key: 'Exercise'
-    },
-    {
-      imageUrl: './../../../../assets/time-tracking-dashboard/images/icon-social.svg',
-      color: 'violet',
-      key: 'Social'
-    },
-    {
-      imageUrl: './../../../../assets/time-tracking-dashboard/images/icon-self-care.svg',
-      color: 'soft-orange',
-      key: 'Self Care'
-    }
-  ]
+  currentTimeFrame: string = ''
 
-  constructor() { }
+  constructor(private getJsonDataService: GetJsonDataService) {}
 
   ngOnInit(): void {
-    console.log(this.cardData);
-
+    this.getCurrentTimeFrame();
   }
 
+  getImageSrc(key: string) {
+    let imgSrc: string = '';
+    switch (key) {
+      case 'Work': {
+        imgSrc =
+        './../../../../assets/time-tracking-dashboard/images/icon-work.svg';
+        break;
+      }
+      case 'Play': {
+        imgSrc =
+        './../../../../assets/time-tracking-dashboard/images/icon-play.svg';
+        break;
+      }
+      case 'Study': {
+        imgSrc =
+        './../../../../assets/time-tracking-dashboard/images/icon-study.svg';
+        break;
+      }
+      case 'Exercise': {
+        imgSrc =
+        './../../../../assets/time-tracking-dashboard/images/icon-exercise.svg';
+        break;
+      }
+      case 'Social': {
+        imgSrc =
+        './../../../../assets/time-tracking-dashboard/images/icon-social.svg';
+        break;
+      }
+      case 'Self Care': {
+        imgSrc =
+        './../../../../assets/time-tracking-dashboard/images/icon-self-care.svg';
+        break;
+      }
+    }
+    return imgSrc;
+  }
+
+  getCurrentTimeFrame(){
+    this.getJsonDataService.selectedTimeFrame.subscribe((value: any) => {
+      this.currentTimeFrame = value;
+    });
+  }
+
+  getCurrentHours(){
+    return this.cardData.timeframes[this.currentTimeFrame].current;
+  }
+
+  getPreviousHours(){
+    return this.cardData.timeframes[this.currentTimeFrame].previous;
+  }
 }

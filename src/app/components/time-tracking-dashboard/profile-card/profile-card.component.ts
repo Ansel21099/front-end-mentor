@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetJsonDataService } from 'src/app/service/get-json-data.service';
 
 @Component({
   selector: 'profile-card',
@@ -6,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-card.component.scss'],
 })
 export class ProfileCardComponent implements OnInit {
-
-  timeFrames: string[] = ['daily','weekly','monthly'];
+  timeFrames: string[] = ['daily', 'weekly', 'monthly'];
   activeTimeFrame: string = this.timeFrames[0];
 
-  constructor() {}
+  constructor(private getJsonDataService: GetJsonDataService) {}
 
   ngOnInit(): void {}
 
   changeTimeFrame(time: string) {
     this.activeTimeFrame = time;
+    this.getJsonDataService.selectedTimeFrame.next(time);
   }
 }

@@ -1,17 +1,19 @@
 @use "/src/assets/sass/common.scss";
 
-$light-red: hsl(15, 100%, 70%);
+$light-orange: hsl(15, 100%, 70%);
 $soft-blue: hsl(195, 74%, 62%);
 $light-red: hsl(348, 100%, 68%);
 $lime-green: hsl(145, 58%, 55%);
 $violet: hsl(264, 64%, 52%);
 $soft-orange: hsl(43, 84%, 65%);
 $dark-blue: hsl(235, 46%, 20%);
+$dark-blue-hover: hsl(236, 43%, 44%);
 $pale-blue: hsl(236, 100%, 87%);
+$white:#ffffff;
 
 .container {
   border-radius: 16px;
-  background-color: $soft-blue;
+  cursor: pointer;
 }
 
 .header {
@@ -29,14 +31,19 @@ $pale-blue: hsl(236, 100%, 87%);
   border-radius: 16px;
   padding: 24px;
 
+  &:hover{
+    background-color: $dark-blue-hover;
+  }
+
   .title {
-    color: white;
+    color: $white;
     font-weight: 500;
     font-size: 18px;
   }
 
   img {
     height: 5px;
+    cursor: pointer;
   }
 
   .body-time {
@@ -45,7 +52,7 @@ $pale-blue: hsl(236, 100%, 87%);
     padding-top: 8px;
     .time {
       font-size: 32px;
-      color: white;
+      color: $white;
       font-weight: 300;
     }
 
@@ -57,7 +64,7 @@ $pale-blue: hsl(236, 100%, 87%);
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1100px) {
   .container {
     width: 250px;
   }
@@ -77,4 +84,28 @@ $pale-blue: hsl(236, 100%, 87%);
       }
     }
   }
+}
+
+.work{
+  background-color: $light-orange;
+}
+
+.play{
+  background-color: $soft-blue;
+}
+
+.study{
+  background-color: $light-red;
+}
+
+.exercise{
+  background-color: $lime-green;
+}
+
+.social{
+  background-color: $violet;
+}
+
+.selfcare{
+  background-color: $soft-orange;
 }

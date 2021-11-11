@@ -1,6 +1,16 @@
-<div class="container">
+<div
+  class="container"
+  [ngClass]="{
+    work: cardData.title === 'Work',
+    play: cardData.title === 'Play',
+    study: cardData.title === 'Study',
+    exercise: cardData.title === 'Exercise',
+    social: cardData.title === 'Social',
+    selfcare: cardData.title === 'Self Care'
+  }"
+>
   <div class="d-flex flex-end w-100 header">
-    <img src="./../../../../assets/time-tracking-dashboard/images/icon-study.svg" alt="logo"/>
+    <img [src]="getImageSrc(cardData.title)"/>
   </div>
   <div class="body">
     <div class="d-flex space-between w-100 vertical-align-center">
@@ -11,8 +21,8 @@
       />
     </div>
     <div class="body-time">
-      <span class="time">32hrs</span
-      ><span class="last-week-time">Last Week - 20hrs</span>
+      <span class="time">{{ getCurrentHours() | hour}}</span
+      ><span class="last-week-time">Last week - {{ getPreviousHours() | hour }}</span>
     </div>
   </div>
 </div>
